@@ -1,0 +1,35 @@
+.searchBar__container {
+	padding: 5px;
+}
+
+.searchBar__label {
+	font-weight: 600;
+	color: white;
+}
+
+.searchBar__input {
+	height: 20px;
+	margin-inline-end: 10px;
+	border: 2px solid black;
+	border-radius: 4px;
+	background-color: greenyellow;
+}
+
+.searchBar__input:focus {
+	border-color: orange;
+}
+
+.searchBar__button {
+	height: 26px;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: green;
+}
+
+.searchBar__button:hover {
+	background-color: darkorange;
+}
+
+.searchBar__button:active {
+	background-color: brown;
+}

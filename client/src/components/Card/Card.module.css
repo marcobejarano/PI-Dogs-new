@@ -1,0 +1,45 @@
+.card__container {
+	inline-size: 250px;
+	margin: 10px;
+	border: 2px solid black;
+	border-radius: 10px;
+	background-color: lightskyblue;
+}
+
+.card__name {
+	padding: 10px;
+    border-block-end: 2px solid black;
+	border-start-start-radius: 10px;
+	border-start-end-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: lightgreen;
+	text-align: center;
+	text-decoration: none;
+	color: inherit;
+}
+
+.card__image {
+	max-inline-size: 100%;
+	block-size: auto;
+	aspect-ratio: 3/2;
+	border-block-end: 2px solid black;
+}
+
+.card__weight {
+	padding-block-end: 6px;
+	text-align: center;
+	border-block-end: 2px solid black;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.card__temperament {
+	padding: 5px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

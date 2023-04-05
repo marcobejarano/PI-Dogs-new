@@ -1,0 +1,43 @@
+.detail__pageContainer {
+	margin: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.detail__button {
+	margin-block-end: 10px;
+	padding: 5px;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: green;
+}
+
+.detail__title {
+	text-align: center;
+	font-size: calc(0.55em + 1vw);
+	font-weight: 600;
+}
+
+.detail__container {
+	margin: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.detail__infoContainer {
+	inline-size: 350px;
+	margin: 20px;
+	font-size: calc(0.4em + 1vw);
+	font-weight: 400;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+.detail__image {
+	inline-size: 400px;
+	border: 2px solid black;
+	border-radius: 10px;
+}

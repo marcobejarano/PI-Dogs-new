@@ -1,0 +1,41 @@
+.landingPage__container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.landingPage__image {
+	max-inline-size: 100%;
+	block-size: auto;
+	border: 2px solid yellow;
+}
+
+.landingPage__greeting {
+	font-size: calc(0.7em + 1vw);
+	font-weight: 600;
+	color: white;
+}
+
+.landingPage__invitation {
+	font-size: calc(0.4em + 1vw);
+	font-weight: 400;
+	color: white;
+}
+
+.landingPage__button {
+	padding: 10px;
+	border: 2px solid black;
+	font-weight: 600;
+	background-color: skyblue;
+}
+
+.landingPage__button:hover {
+	background-color: darkorange;
+	color: white;
+}
+
+.landingPage__button:active {
+	background-color: lightgreen;
+	color: indianred;
+}
