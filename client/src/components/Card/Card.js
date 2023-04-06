@@ -6,7 +6,7 @@ const { id, name, image, weight, temperament } = props;
 
 	return (
 		<div className={ styles.card__container }>
-		    <div className={ styles.card__name }>Breed: { name } </div>
+		    <div className={ styles.card__name }>Breed: { name }</div>
 		    <Link to={ `/detail/${ id }` }>
 		        <img src={ image && image.url  } alt= { name } className={ styles.card__image } />
 		    </Link>

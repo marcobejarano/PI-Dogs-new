@@ -1,0 +1,36 @@
+.error__container {
+	margin-block-start: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.error__button {
+    height: 24px;
+	margin: 5px auto 20px auto;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: lightseagreen;
+}
+
+.navBar__button:hover {
+	background-color: darkorange;
+}
+
+.navBar__button:active {
+	background-color: greenyellow;
+}
+
+.error__image {
+	max-inline-size: 100%;
+	block-size: auto;
+	border: 2px solid black;
+}
+
+.error__message {
+	font-size: calc(0.7em + 1vw);
+	font-weight: 600;
+	font-style: italic;
+}

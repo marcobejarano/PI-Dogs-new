@@ -1,0 +1,19 @@
+.formSuccess__container {
+	margin-block-start: 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+.formSuccess__image {
+	inline-size: 350px;
+	border: 2px solid black;
+}
+
+.formSuccess__message {
+	font-size: calc(0.7em + 1vw);
+	font-weight: 600;
+	font-style: italic;
+}

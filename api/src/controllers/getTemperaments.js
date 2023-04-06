@@ -33,7 +33,6 @@ const getTemperaments = async (req, res) => {
 			}
 		}
 		const allTemperaments = await Temperament.findAll();
-		console.log(allTemperaments.length);
 		res.status(200).send(allTemperaments);
 	} catch(error) {
 		console.error(error.message);

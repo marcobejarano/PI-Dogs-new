@@ -14,7 +14,7 @@ const getDogByNameQuery = async (req, res) => {
 			return dogToLoweCase.includes(nameToLowerCase);
 		});
 		if (!dogsSearched.length) {
-			res.status(400).send({ error: 'There is no breed name: ${ name }'})
+			return res.status(400).send({ error: 'There is no breed name: ${ name }'})
 		}
 		res.status(200).send(dogsSearched);
 	} catch(error) {

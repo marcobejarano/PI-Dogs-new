@@ -1,0 +1,39 @@
+.aboutPage__container {
+	padding-block: 10px;
+	padding-inline: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.aboutPage__title {
+	margin-block-end: 20px;
+	font-size: calc(0.6em + 1vw);
+	font-weight: 600;
+}
+
+.aboutPage__info {
+	display: flex;
+	gap: 20px;
+}
+
+.aboutPage__description {
+	inline-size: 80vw;
+	padding: 30px;
+	font-size: calc(0.5em + 1vw);
+	font-weight: 400;
+}
+
+.aboutPage__image {
+	max-inline-size: 50%;
+	block-size: auto;
+	padding: 30px;
+}
+
+@media screen and (max-width: 850px) {
+	.aboutPage__info {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 20px;
+	}
+}

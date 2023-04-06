@@ -1,0 +1,10 @@
+.NotFoundPage__container {
+	margin: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.NotFoundPage__image {
+	max-inline-size: 60%;
+	block-size: auto;
+}

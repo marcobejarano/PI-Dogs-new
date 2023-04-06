@@ -23,7 +23,8 @@
 }
 
 .selects__select {
-	background-color: blue;
+	height: 24px;
+	background-color: lightblue;
 	border-radius: 5px;
 }
 

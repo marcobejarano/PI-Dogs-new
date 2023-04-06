@@ -23,3 +23,7 @@ button {
   outline: none;
   cursor: pointer;
 }
+
+button:disabled {
+  pointer-events: none;
+}

@@ -1,16 +1,7 @@
 import styles from './LandingPage.module.css';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { getAllTemperaments } from '../../redux/features/temperaments/temperamentsSlice';
 
 const LandingPage = () => {
-	const dispatch = useDispatch();
-
-	useEffect(() => {
-		dispatch(getAllTemperaments())
-	}, [dispatch]);
-
 	return (
 	    <div className={ styles.landingPage__container }>
 	        <img src='dogs.jpg' alt='dogs' className={ styles.landingPage__image }/>

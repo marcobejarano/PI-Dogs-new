@@ -1,13 +1,17 @@
 import styles from './Form.module.css';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { getAllTemperaments } from '../../redux/features/dogs/dogsSlice';
 import checkValidation from './checkValidation';
+import FormSuccess from '../FormSuccess/FormSuccess';
 
 const serverUrl = 'http://localhost:3001/api/v1';
 
 const Form = () => {
-	const allTemperaments = useSelector(state => state.temperaments.allTemperaments);
+	const dispatch = useDispatch();
+	const allTemperaments = useSelector(state => state.dogs.allTemperaments);
+	const [isFormSubmitted, setIsFormSubmitted] = useState(false);
 	const [breedData, setBreedData] = useState({
 		name: '',
 		minWeight: '',
@@ -57,8 +61,11 @@ const Form = () => {
 			...errors,
 			[name]: checkValidation(name, value)
 		});
-
 	};
+
+	useEffect(() => {
+		dispatch(getAllTemperaments());
+	}, [dispatch]);
 
 	useEffect(() => {
 		const hasErrors = Object.values(errors).some(error => error.length > 0);
@@ -66,13 +73,14 @@ const Form = () => {
 			Number(breedData.minWeight) >= Number(breedData.maxWeight) ||
 			Number(breedData.minWeight) >= Number(breedData.maxWeight) ||
 			Number(breedData.minLifeSpan) >= Number(breedData.maxLifeSpan) ||
-			breedData.temperament.length === 0
+			breedData.temperament.length === 0 || breedData.imageUrl === ''
 		) {
 			setIsValid(false);
 		} else {
 			setIsValid(true);
 		}
-	}, [breedData, errors]);
+		console.log(isValid);
+	}, [breedData, errors, isValid]);
 
 	const handleAddSelect = () => {
 		setNumSelects(numSelects + 1);
@@ -95,10 +103,15 @@ const Form = () => {
 				temperament: [],
 				imageUrl: ''
 			});
+			setIsFormSubmitted(true);
 		} catch(error) {
 			console.error(error.message);
 		}
 	};
+
+	if (isFormSubmitted) {
+		return <FormSuccess />;
+	}
 
 	return (
 		<div className={ styles.form__page }>
@@ -265,7 +278,13 @@ const Form = () => {
 			        <div className={ styles.form__validations }>
 		                Temperaments must be different
 		            </div> : null }
-				<button type='button' onClick={ handleAddSelect }>Add Temperament</button>
+				<button 
+				    type='button' 
+				    onClick={ handleAddSelect }
+				    className={ styles.form__button_addSelects }
+				>
+				    Add Temperament
+				</button>
 			    <div className={ styles.form__group }>
 			        <label htmlFor='imageUrl' className={ styles.form__label }>Image URL: </label>
 			        <input
