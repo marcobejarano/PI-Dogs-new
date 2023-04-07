@@ -10,7 +10,7 @@ const getDogByBreedId = async (req, res) => {
 		const dogs = response.data;
 		const dogSearched = dogs.find(dog => dog.id === +id);
 		if (!dogSearched) {
-			res.status(400).send({ error: 'Dog breed was not found' });
+			return res.status(400).send({ error: 'Dog breed was not found' });
 		}
 		res.status(200).send(dogSearched);
 	} catch(error) {

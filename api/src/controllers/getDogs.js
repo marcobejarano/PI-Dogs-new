@@ -10,8 +10,8 @@ const fetchDogsFromDogApi = async () => {
 		const response = await axios.get(`${ apiUrl }?api_key=${ API_KEY }`);
 		const dogsData = response.data;
 		const dogsFromDogApi = dogsData.map(dog => {
-			const { id, image, name, weight, height, life_span, temperament} = dog;
-			const dogDetails = { id, image, name, weight, height, life_span, temperament, origin: 'Dog API' };
+			const { id, image, name, weight, height, life_span, temperament } = dog;
+			const dogDetails = { id, image, name, weight, height, life_span, temperament: temperament || '', origin: 'Dog API' };
 			return dogDetails;
 		});
 		return dogsFromDogApi;
