@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './BreedSearchError.module.css';
 import { useDispatch } from 'react-redux';
 import { getAllDogs } from '../../redux/features/dogs/dogsSlice';

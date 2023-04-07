@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './SearchBar.module.css';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';

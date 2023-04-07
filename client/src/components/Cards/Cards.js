@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './Cards.module.css';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -46,11 +47,13 @@ const Cards = () => {
 	const handleOrderAlphabetically = (e) => {
 		dispatch(orderAlphabetically(e.target.value));
 		setCurrentPage(1);
+		document.getElementById('Weight').value = '';
 	};
 
 	const handleOrderByWeight = (e) => {
 		dispatch(orderByWeight(e.target.value));
 		setCurrentPage(1);
+		document.getElementById('Alphabetically').value = '';
 	};
 
 	const handlePreviousPage = () => {

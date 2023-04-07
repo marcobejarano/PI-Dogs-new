@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './Detail.module.css';
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';

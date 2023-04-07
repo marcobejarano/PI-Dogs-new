@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './FormSuccess.module.css';
 
 const FormSuccess = () => {
