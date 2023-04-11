@@ -6,6 +6,7 @@ import axios from 'axios';
 import { getAllTemperaments } from '../../redux/features/dogs/dogsSlice';
 import checkValidation from './checkValidation';
 import FormSuccess from '../FormSuccess/FormSuccess';
+import FormFailed from '../FormFailed/FormFailed';
 
 const serverUrl = 'http://localhost:3001/api/v1';
 
@@ -13,6 +14,7 @@ const Form = () => {
 	const dispatch = useDispatch();
 	const allTemperaments = useSelector(state => state.dogs.allTemperaments);
 	const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+	const [isFormFailed, setIsFormFailed] = useState(false);
 	const [breedData, setBreedData] = useState({
 		name: '',
 		minWeight: '',
@@ -74,14 +76,14 @@ const Form = () => {
 			Number(breedData.minWeight) >= Number(breedData.maxWeight) ||
 			Number(breedData.minWeight) >= Number(breedData.maxWeight) ||
 			Number(breedData.minLifeSpan) >= Number(breedData.maxLifeSpan) ||
-			breedData.temperament.length === 0 || breedData.imageUrl === ''
+			breedData.temperament.length === 0 || breedData.imageUrl === '' ||
+			breedData.name.trim() === ''
 		) {
 			setIsValid(false);
 		} else {
 			setIsValid(true);
 		}
-		console.log(isValid);
-	}, [breedData, errors, isValid]);
+	}, [breedData, errors]);
 
 	const handleAddSelect = () => {
 		setNumSelects(numSelects + 1);
@@ -107,11 +109,16 @@ const Form = () => {
 			setIsFormSubmitted(true);
 		} catch(error) {
 			console.error(error.message);
+			setIsFormFailed(true);
 		}
 	};
 
 	if (isFormSubmitted) {
 		return <FormSuccess />;
+	}
+
+	if (isFormFailed) {
+		return <FormFailed />;
 	}
 
 	return (
@@ -270,9 +277,6 @@ const Form = () => {
 				            	</option>
 				            )) }
 				        </select>
-				        { errors.temperament[i] && errors.temperament[i].map((error, index) => (
-				        	<div key={ index } className={ styles.form__validations }>{ error }</div>
-				        )) }
 				    </div>
 				)) }
 				{ breedData.temperament.length > 1 && breedData.temperament.length !== new Set(breedData.temperament).size ?
