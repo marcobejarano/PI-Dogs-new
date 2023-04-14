@@ -9,14 +9,15 @@ Antes de comenzar, asegúrese de tener instalado lo siguiente:
 
 ## Instalación
 <ol>
+    <li>Desde psql (shell o PGAdmin) crear una base de datos llamada "dogs".</li>
 	<li>
 		Clonar el repositorio:
 <pre><code>git clone https://github.com/marcobejarano/PI-Dogs-new.git</code></pre>
     </li>
     <li>
 		Crear un archivo .env en la raíz del proyecto (al mismo nivel que el archivo package.json) y agregar los siguientes datos:
-<pre><code>POSTGRES_USER=postgres
-POSTGRES_PASSWORD=postgres123
+<pre><code>POSTGRES_USER=SU_USUARIO_DE_POSTGRES
+POSTGRES_PASSWORD=SU_CONTRASEÑA_DE_POSTGRES
 POSTGRES_DB=dogs
 POSTGRES_HOST=localhost
 SERVER_HOST=localhost
