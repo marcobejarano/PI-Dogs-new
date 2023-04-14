@@ -6,7 +6,7 @@ const router = require('./routes');
 const app = express();
 
 app.use(express.json())
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(morgan('dev'));
 app.use('/api/v1/', router);
 
