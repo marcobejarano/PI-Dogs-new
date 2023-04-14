@@ -7,6 +7,14 @@
 	gap: 20px;
 }
 
+.formSuccess__button {
+    height: 24px;
+	margin: 5px auto 20px auto;
+	border: 2px solid black;
+	border-radius: 5px;
+	background-color: lightseagreen;
+}
+
 .formSuccess__image {
 	inline-size: 350px;
 	border: 2px solid black;

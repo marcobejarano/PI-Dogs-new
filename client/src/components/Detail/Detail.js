@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Detail.module.css';
-import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 
@@ -24,7 +23,6 @@ const Detail = () => {
 	}, [detailId]);
 
 	const { id, image, name, weight, height, life_span, temperament } = dog;
-	console.log(dog);
 
 	return (
 		<div className={ styles.detail__pageContainer }>

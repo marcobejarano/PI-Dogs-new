@@ -6,9 +6,15 @@ const serverUrl = 'http://localhost:3001/api/v1';
 const getDogByBreedId = async (req, res) => {
 	try {
 		const { id } = req.params;
+		let fixedId = '';
+		if (id.length <= 3) {
+			fixedId = +id;
+		} else {
+			fixedId = id;
+		}
 		const response = await axios.get(`${ serverUrl }/dogs`);
 		const dogs = response.data;
-		const dogSearched = dogs.find(dog => dog.id === +id);
+		const dogSearched = dogs.find(dog => dog.id === fixedId);
 		if (!dogSearched) {
 			return res.status(400).send({ error: 'Dog breed was not found' });
 		}

@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './SearchBar.module.css';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { searchDogByBreedName } from '../../redux/features/dogs/dogsSlice';
 

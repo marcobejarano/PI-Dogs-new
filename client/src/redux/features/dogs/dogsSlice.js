@@ -20,7 +20,7 @@ export const getAllDogs = createAsyncThunk(
 );
 
 export const getAllTemperaments = createAsyncThunk(
-	'temperaments/getAllTemperaments', 
+	'dogs/getAllTemperaments', 
 	async () => {
 		const response = await axios.get(`${ serverUrl }/temperaments`);
 		return response.data;
@@ -28,7 +28,7 @@ export const getAllTemperaments = createAsyncThunk(
 );
 
 export const searchDogByBreedName = createAsyncThunk(
-	'dogs/searchDogsByBreedName',
+	'dogs/searchDogByBreedName',
 	async (name) => {
 		const response = await axios.get(`${ serverUrl }/search?name=${ name }`);
 		return response.data;

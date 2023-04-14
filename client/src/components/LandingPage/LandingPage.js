@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './LandingPage.module.css';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getAllDogs } from '../../redux/features/dogs/dogsSlice';
 
 const LandingPage = () => {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getAllDogs());
+	}, [dispatch]);
+
 	return (
 	    <div className={ styles.landingPage__container }>
 	        <img src='dogs.jpg' alt='dogs' className={ styles.landingPage__image }/>

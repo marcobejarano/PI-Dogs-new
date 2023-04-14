@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Card.module.css';
 import { Link } from 'react-router-dom';
 
-const Cards = (props) => {
+const Card = (props) => {
 const { id, name, image, weight, temperament } = props;
 
 	return (
@@ -17,4 +17,4 @@ const { id, name, image, weight, temperament } = props;
 	);
 };
 
-export default Cards;
+export default Card;

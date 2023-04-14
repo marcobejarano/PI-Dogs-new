@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Cards.module.css';
-import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Card from '../Card/Card';
 import Loading from '../Loading/Loading';
@@ -15,18 +14,24 @@ import {
 } from '../../redux/features/dogs/dogsSlice';
 
 const Cards = () => {
-	const [currentPage, setCurrentPage] = useState(1);
-	const itemsPerPage = 8;
-
 	const dispatch = useDispatch();
 	const allDogsAdjusted = useSelector(state => state.dogs.allDogsAdjusted);
 	const allTemperaments = useSelector(state => state.dogs.allTemperaments);
 	const status = useSelector(state => state.dogs.status);
 
+	const [currentPage, setCurrentPage] = useState(1);
+	const itemsPerPage = 8;
+	const startIndex = (currentPage - 1) * itemsPerPage;
+	const endIndex = startIndex + itemsPerPage;
+	const currentDogs = allDogsAdjusted.slice(startIndex, endIndex);
+
 	useEffect(() => {
-		dispatch(getAllDogs());
 		dispatch(getAllTemperaments());
 	}, [dispatch]);
+
+	const handleClick = () => {
+		dispatch(getAllDogs());
+	};
 
 	const handleFilterOrigin = (e) => {
 		dispatch(filterByOrigin(e.target.value));
@@ -72,12 +77,14 @@ const Cards = () => {
 		return <BreedSearchError />;
 	}
 
-	const startIndex = (currentPage - 1) * itemsPerPage;
-	const endIndex = startIndex + itemsPerPage;
-	const currentDogs = allDogsAdjusted.slice(startIndex, endIndex);
-
 	return (
-		<div>
+		<div className={ styles.cardsPage__container }>
+		    <button 
+		        onClick={ handleClick } 
+		        className={ styles.cardsPage__button }
+		    >
+		        Get all Dogs
+		    </button>
 		    <div className={ styles.selects__container }>
 		        <div>
 		            <label htmlFor='origin' className={ styles.selects__label }>Origin: </label>
